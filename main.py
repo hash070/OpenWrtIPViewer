@@ -34,6 +34,10 @@ def getIP():
 def getIPAddr():
     return ipAddr
 
+@app.route('/getLastDate', methods=['POST'])
+def getLastDate():
+    return lastUpdate
+
 # SSH IP Query Thread
 class QueryThread(threading.Thread):
     def __init__(self, name):
@@ -44,7 +48,10 @@ class QueryThread(threading.Thread):
         while True:
             # Try to catch paramiko exceptions
             try:
+                # Declare the global variable
                 global ipAddr
+                global lastUpdate
+                # Start SSH
                 ssh = paramiko.SSHClient()
                 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
                 k = paramiko.RSAKey.from_private_key_file("./id")

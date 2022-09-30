@@ -5,3 +5,8 @@
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
+
+#outputText {
+    margin-right: 1vw;
+    border-radius: 10px;
+}
