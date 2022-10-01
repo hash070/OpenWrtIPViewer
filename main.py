@@ -16,9 +16,8 @@ port = 22
 serverPort = 18088
 
 app = flask.Flask(__name__,
-            static_folder='./static',
+            static_folder='./assets',
             template_folder='./templates')
-
 
 # Solve CORS https://stackoverflow.com/questions/25594893/how-to-enable-cors-in-flask
 cors = CORS(app)
