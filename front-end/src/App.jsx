@@ -15,17 +15,21 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    axios.post('/getIP')
-      .then(response => {
-        this.setState({ value: response.data })
-        console.log(response.data)
-      })
+      setInterval(this.updateIP(), 1000);
+  }
 
-    axios.post('/getLastDate')
-      .then(response => {
-        this.setState({ lastdate: response.data })
-        console.log(response.data)
-      })
+  updateIP() {
+      axios.post('/getIP')
+          .then(response => {
+              this.setState({ value: response.data })
+              console.log(response.data)
+          })
+
+      axios.post('/getLastDate')
+          .then(response => {
+              this.setState({ lastdate: response.data })
+              console.log(response.data)
+          })
   }
 
   render() {
